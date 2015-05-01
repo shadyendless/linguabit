@@ -1,0 +1,60 @@
+<head>
+	<title>LinguaBit</title>
+</head>
+
+<template name="Landing">
+	<div class="landing-container">
+		<div class="hero">
+			<nav class="transparent no-shadow">
+				<div class="nav-wrapper">
+					<div class="container">
+						<a class="brand-logo hide-on-small-only" href="{{ pathFor 'Landing' }}">{{ SiteName }}</a>
+						<a class="brand-logo center hide-on-med-and-up" href="{{ pathFor 'Landing' }}">{{ SiteName }}</a>
+						<ul class="right hide-on-small-only">
+							<li><a class="register transparent white-text btn-flat" href="">Register</a></li>
+							<li><a class="login white black-text btn-flat" href="">Log In</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="row hide-on-med-and-up">
+				<div class="col s6">
+					<a class="register transparent white-text btn-flat" href="">Register</a>
+				</div>
+				<div class="col s6">
+					<a class="login white black-text btn-flat" href="">Log In</a>
+				</div>
+			</div>
+			<div class="page white-text">
+				<p class="flow-text"><strong>What is {{ SiteName }}?</strong></p>
+				<br><br>
+				<div class="container center-align">
+					<span class="lead flow-text">{{ SiteName }} is a new social language-learning application that ensures quick, concise corrections to your posts. Unlike other websites, we enforce a strict correction system to make sure that everyone uses the same rules. You can also make long-lasting friendships and set up private language-exchanges with the other members.</span>
+					<div class="row">
+						<div class="col s12 m4">
+							<h1><i class="mdi-action-done-all"></i></h1>
+							<span class="lead flow-text">Using our easy-to-understand correction system, you're guaranteed to understand every correction, every time.</span>
+						</div>
+						<div class="col s12 m4">
+							<h1><i class="mdi-content-archive"></i></h1>
+							<span class="lead flow-text">Freely download your corrections so that you can review them on the go to ensure that you learn from your mistakes.</span>
+						</div>
+						<div class="col s12 m4">
+							<h1><i class="mdi-hardware-memory"></i></h1>
+							<span class="lead flow-text">We intelligently track your corrections to point out problem areas in your learning and challenge you so you can patch them up.</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="page-footer transparent">
+			<div class="footer-copyright">
+				<div class="container center-align">
+					&copy; 2015 {{ SiteName }}
+				</div>
+			</div>
+		</footer>
+		{{ > Registration }}
+		{{ > Login }}
+	</div>
+</template>

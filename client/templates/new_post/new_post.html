@@ -1,0 +1,33 @@
+<template name="NewPost">
+	<div class="card">
+		<div class="post-message center-align">
+			<a href="" class="btn-flat new-post-button light-blue-text">Click here to write a post.</a>
+		</div>
+		<div class="hidden">
+			<div class="card-content">
+				<span class="card-title black-text">New Post</span>
+					<div class="row">
+						<div class="input-field col s12">
+							<select name="post_language">
+								<option value="" disabled selected>Post Language</option>
+								{{ #each languages }}
+									<option value="{{ this }}">{{ this }}</option>
+								{{ /each }}
+							</select>
+							<label>Post Language</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea id="post_content" name="post_content" class="materialize-textarea" length="{{ PostLength }}"></textarea>
+							<label for="post_content">Post</label>
+						</div>
+					</div>
+			</div>
+			<div class="card-action right-align">
+				<a href="" class="red-text cancel-post">Cancel</a>
+				<a href="" class="light-blue-text post-submit">Post</a>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,55 @@
+<template name="TopBar">
+	<nav class="fixed-nav light-blue darken-3 custom-topbar">
+		<div class="nav-wrapper">
+			<div class="container">
+				<a class="left button-collapse" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+				<a class="hide-on-med-and-down" href="{{ pathFor 'Home' }}"><strong>{{ SiteName }}</strong></a>
+				<a class="brand-logo hide-on-large-only" href="{{ pathFor 'Home' }}"><strong>{{ SiteName }}</strong></a>
+			</div>
+		</div>
+	</nav>
+	<ul id="nav-mobile" class="side-nav">
+		{{ > SideBar }}
+  </ul>
+  <ul class="right visible-nav side-nav hide-on-med-and-down">
+    {{ > SideBar }}
+  </ul>
+</template>
+
+<template name="SideBar">
+	<li class="list-item">
+		<div class="custom-card">
+			<div class="row valign-wrapper">
+				<div class="col s4">
+					<img src="https://scontent-sjc.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/10988436_807584895981649_3642995571896423460_n.jpg?oh=2714e90b614db34f0196fbc56caa8ab3&oe=55996C29" class="circle responsive-img">
+				</div>
+				<div class="col s8">
+					<span class="black-text">
+						{{ currentUser.profile.first_name }} {{ currentUser.profile.last_name }} <br>
+						<span class="edit-profile-link">Edit Profile</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</li>
+<!--
+	<li class="list-item {{ activeRoute 'Home' }}">
+		<a href="{{ pathFor 'Home' }}">Home</a>
+	</li>
+-->
+	<li class="list-item">
+		<a href="">Notifications<span class="badge">0</span></a>
+	</li>
+	<li class="list-item">
+		<a href="">Your Posts</a>
+	</li>
+	<li class="list-item">
+		<a href="">Your Stats</a>
+	</li>
+	<li class="list-item">
+		<a href="">Your Friends</a>
+	</li>
+	<li class="list-item">
+		<a href="" class="sign-out">Sign Out</a>
+	</li>
+</template>
