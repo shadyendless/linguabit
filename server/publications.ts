@@ -2,13 +2,13 @@
 /// <reference path="../lib/collections/posts.ts" />
 /// <reference path="../definitions/publish-composite.d.ts" />
 //
-//Meteor.publish('posts', function(limit: number) {
-//	check(this.userId, String);
-//	check(limit, Number);
-//	
-//	var languages = Meteor.users.findOne(this.userId).profile.languages;
-//	return Posts.find({language: {$in: languages}}, {sort: {submitted: -1, correctionsCount: 1}, limit: limit});
-//});
+
+Meteor.publish('ownPosts', function(limit: number) {
+	check(this.userId, String);
+	check(limit, Number);
+	
+	return Posts.find({userId: this.userId}, {sort: {submitted: -1}, limit: limit});
+});
 
 Meteor.publishComposite('posts', function(userId: string, limit: number) {
 	check(userId, String);

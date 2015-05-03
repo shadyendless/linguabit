@@ -1,5 +1,9 @@
 /// <reference path="../.meteor/local/build/programs/server/assets/packages/meteortypescript_typescript-libs/definitions/all-definitions.d.ts" />
 
+Router.configure({
+	loadingTemplate: 'Loading'
+});
+
 Router.route('/', function() {
 	this.layout('Layout');
 	this.render('Home');
@@ -8,6 +12,17 @@ Router.route('/', function() {
 	waitOn: function() {
 		if (Meteor.userId() === null) return;
 		return Meteor.subscribe('posts', Meteor.userId(), Session.get('postLimit'));
+	}
+});
+
+Router.route('/posts/mine', function() {
+	this.layout('Layout');
+	this.render('PostList');
+}, {
+	name: 'OwnPosts',
+	waitOn: function() {
+		if (Meteor.userId() === null) return;
+		return Meteor.subscribe('ownPosts', Session.get('postLimit'));
 	}
 });
 
