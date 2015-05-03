@@ -1,3 +1,44 @@
 <template name="Settings">
-	<h1>Settings</h1>
+	<div class="card">
+		<div class="card-content">
+			<span class="card-title black-text">Settings</span>
+			<ul class="collapsible popout">
+				<li>
+					<div class="collapsible-header">
+						<i class="mdi-action-language"></i>Set Languages
+					</div>
+					<div class="collapsible-body">
+						<div class="container container-space">
+							<span class="lead small">These are the languages that you will see on the homepage. It is recommend that you choose languages that you know or are familiar with so that you can help others learn them too.</span>
+							{{{ getLanguages }}}
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header">
+						<i class="mdi-action-lock-outline"></i>Change Password
+					</div>
+					<div class="collapsible-body container-space">
+						<div class="container">
+							<div class="row">
+								<div class="input-field col s12">
+									<input type="password" name="old_password" />
+									<label for="old_password">Old Password</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input type="password" name="new_password" />
+									<label for="new_password">New Password</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="card-action right-align">
+			<a href="#">Save Changes</a>
+		</div>
+	</div>
 </template>

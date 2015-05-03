@@ -12,6 +12,7 @@
 	 closeModal(): Function;
 	 material_select(): Function;
 	 characterCounter(): Function;
+	 collapsible(properties?: any): Function;
  }
  
  declare module Materialize {
