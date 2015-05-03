@@ -55,7 +55,8 @@ Template['Registration'].events({
 			profile: {
 				first_name: first_name,
 				last_name: last_name,
-				native_language: native_language
+				native_language: native_language,
+				languages: []
 			}
 		}, (error) => {
 			if (error) {
