@@ -4,7 +4,11 @@ Router.route('/', function() {
 	this.layout('Layout');
 	this.render('Home');
 }, {
-	name: 'Home'
+	name: 'Home',
+	waitOn: function() {
+		if (Meteor.userId() === null) return;
+		return Meteor.subscribe('posts', Meteor.userId(), Session.get('postLimit'));
+	}
 });
 
 Router.route('/welcome', function() {

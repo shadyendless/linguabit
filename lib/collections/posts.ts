@@ -1,18 +1,24 @@
 /// <reference path="../../.meteor/local/build/programs/server/assets/packages/meteortypescript_typescript-libs/definitions/all-definitions.d.ts" />
 /// <reference path="../constants.ts" />
 
+if (Meteor.isClient) {
+	Session.setDefault('postLimit', 25);
+}
+
 interface Post {
 	userId: string,
 	creator: string,
 	language: string,
 	post: string,
 	submitted: Date,
-	correctionsCount: number
+	correctionsCount: number,
+	tags: string[]
 };
 
 interface PostAttributes {
-	language: String,
-	post: String
+	language: string,
+	post: string,
+	tags: string[]
 };
 
 declare var Posts: Mongo.Collection<Post>;
@@ -22,7 +28,8 @@ Meteor.methods({
 	createPost: function(postAttributes: PostAttributes) {
 		check(postAttributes, {
 			language: String,
-			post: String
+			post: String,
+			tags: [String]
 		});
 		
 		if (!postAttributes.language) throw new Meteor.Error('no-language', 'You must select a language for the post.');

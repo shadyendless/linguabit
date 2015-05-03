@@ -5,12 +5,12 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 iron:router
 materialize:materialize
 msavin:mongol
 accounts-password
-autopublish
 meteortypescript:typescript-libs
 less
 meteortypescript:compiler
+reywood:publish-composite
+momentjs:moment

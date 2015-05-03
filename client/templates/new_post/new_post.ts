@@ -29,6 +29,7 @@ Template['NewPost'].events({
 		
 		var language: string = $('select[name=post_language]').val();
 		var post: string = $('textarea[name=post_content]').val();
+		var tagString: string = $('input[name=post_tags]').val();
 		
 		if (!language) {
 			Notifications.showError('You must select a language for the post.');
@@ -43,9 +44,12 @@ Template['NewPost'].events({
 			return;
 		}
 		
+		var tags = tagString.split(',');
+		
 		var postAttributes : PostAttributes = {
 			language: language,
-			post: post
+			post: post,
+			tags: tags
 		}
 		
 		Meteor.call('createPost', postAttributes, function(error: Meteor.Error, result: any) {
