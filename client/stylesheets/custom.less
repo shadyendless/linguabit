@@ -121,6 +121,14 @@ li.list-item {
 			flex-shrink: 1;
 			font-size: 0.75rem;
 			
+			@media screen and (max-width: 600px) {
+				flex-direction: column;
+				
+				.post-date {
+					text-align: right;
+				}
+			}
+			
 			.post-tags {
 				flex-grow: 1;
 				text-align: right;

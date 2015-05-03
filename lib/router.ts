@@ -1,6 +1,7 @@
 /// <reference path="../.meteor/local/build/programs/server/assets/packages/meteortypescript_typescript-libs/definitions/all-definitions.d.ts" />
 
 Router.route('/', function() {
+	this.layout('Layout');
 	this.render('Home');
 }, {
 	name: 'Home'
@@ -10,6 +11,13 @@ Router.route('/welcome', function() {
 	this.render('Landing');
 }, {
 	name: 'Landing'
+});
+
+Router.route('/settings', function() {
+	this.layout('Layout');
+	this.render('Settings');
+}, {
+	name: 'Settings'
 });
 
 function requiresLogin() {
