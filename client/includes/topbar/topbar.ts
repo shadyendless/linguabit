@@ -7,16 +7,18 @@ Template['TopBar'].onRendered(() => {
 });
 
 Template['TopBar'].events({
-	'click .sign-out': (e: Event) => {
+	'click a': function(e: Event) {
+			$('.side-nav').sideNav('hide');
+	},
+	'click .sign-out': function(e: Event) {
 		e.preventDefault();
 		
-		Meteor.logout((error?: Meteor.Error) => {
+		Meteor.logout(function(error?: Meteor.Error) {
 			if (error) {
 				Notifications.showError(error.reason);
 				return;
 			}
 			
-			$('.side-nav').sideNav('hide');
 			Notifications.showMessage('Goodbye! Come back soon.');
 		});
 	}
